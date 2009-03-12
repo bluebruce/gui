@@ -59,6 +59,7 @@ MainWindow::MainWindow(QWidget *parent)
     layout->addLayout(lay_bottom, 0);
 
     setLayout(layout);
+    /* Set flags as splashscreen style */
     setWindowFlags(Qt::SplashScreen);
 }
 
