@@ -1,0 +1,7 @@
+*.pro.user
+debug/*
+release/*
+qtc-gdbmacros/*
+Makefile.Debug
+Makefile.Release
+Makefile
