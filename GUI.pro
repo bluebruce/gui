@@ -5,6 +5,8 @@ TARGET = GUI
 TEMPLATE = app
 SOURCES += main.cpp \
     mainwindow.cpp
-HEADERS += mainwindow.h
+HEADERS += mainwindow.h \
+    msgd.h
 FORMS += mainwindow.ui
 RESOURCES += resource.qrc
+QT += network

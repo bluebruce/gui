@@ -4,6 +4,7 @@
 debug/*
 release/*
 qtc-gdbmacros/*
+tmp/*
 Makefile.Debug
 Makefile.Release
 Makefile

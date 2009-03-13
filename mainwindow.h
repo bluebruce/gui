@@ -11,22 +11,8 @@
 #include <QLabel>
 #include <QtNetwork/QTcpSocket>
 
-struct info_hdr {
-    unsigned int type;
-    unsigned int data_len;
-    unsigned char data[];
-};
+#include "msgd.h"
 
-struct static_info {
-    unsigned char IP[16];
-    unsigned char FW[16];
-};
-
-struct runtime_info {
-    unsigned int type;
-    unsigned int str_len;
-    unsigned char str[];
-};
 
 namespace Ui
 {
@@ -41,6 +27,10 @@ public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void readMsgD();
+    void displayMsgDErr(QAbstractSocket::SocketError socketError);
+
 private:
     Ui::MainWindowClass *ui;
 
@@ -52,8 +42,18 @@ private:
     QLabel *infoC;
     QLabel *infoR;
 
+    void updateInfoR();
+
     struct static_info sInfo;
     struct runtime_info rInfo;
+
+    unsigned int info_data_len;
+    struct info_hdr hdr;
+
+    QTcpSocket *tcpSocket;
+    void StartMsgDConnection();
+    void dbgMsg(const QString&);
+    void Connect2MsgD();
 };
 
 #endif // MAINWINDOW_H
